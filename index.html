@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <title>Visio</title>
+    <link rel="icon" href="image/0c3946b8-67c6-4624-9739-6493bca6ed0c-removebg-preview.png" type="image/x-icon">
+    <style>
+        #google_translate_element {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+
+        .goog-te-gadget {
+            color: transparent !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            color: black !important;
+        }
+
+        body {
+            top: 0px !important;
+        }
+
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        .goog-logo-link {
+            display: none !important;
+        }
+
+        .goog-te-gadget-icon {
+            display: none !important;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+
+        h6 {
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f3f3f3;
+            color: #fff;
+        }
+
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .navbar-left {
+            flex: 1;
+        }
+
+        .navbar-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .navbar-right a {
+            color: #008080;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .slider-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+            color: #ffffff;
+        }
+
+        .slider-text h1 {
+            font-size: 40px;
+        }
+
+        .slider-text p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .get-started-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #008080;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            background-color: #006666;
+        }
+
+        .slider-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .book-carousel {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+        }
+
+        .book-slide {
+            display: flex;
+            gap: 20px;
+        }
+
+        .book-card {
+            flex: 0 0 200px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s;
+        }
+
+        .book-card:hover {
+            transform: scale(1.05);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .book-info {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .book-info h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            color: #008080;
+            ;
+        }
+
+        .book-info p {
+            margin: 0;
+            font-size: 14px;
+            color: #008080;
+        }
+
+        .get-started-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #008080;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .get-started-link:hover {
+            background-color: #006666;
+        }
+
+        @media (max-width: 768px) {
+            .book-card {
+                flex: 0 0 150px;
+            }
+
+            .book-info h3 {
+                font-size: 16px;
+            }
+
+            .book-info p {
+                font-size: 12px;
+            }
+        }
+
+        .books,
+        .categories {
+            margin-bottom: 40px;
+        }
+
+        .books h2,
+        .categories h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #008080;
+        }
+
+        .book-category {
+            margin-bottom: 30px;
+        }
+
+        .book-category h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #004d4d;
+        }
+
+        .book-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 80px;
+        }
+
+        .book-container {
+            width: 250px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .book-container img {
+            width: 250px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 5px;
+        }
+
+        .book-container p {
+            margin: 0;
+            font-size: 14px;
+            color: #006666;
+            padding: 10px;
+        }
+
+        .book-container a.get-started-link {
+            margin-top: 5px;
+            font-size: 12px;
+            padding: 10px 20px;
+            background-color: #008080;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .book-container a.get-started-link:hover {
+            text-decoration: underline;
+        }
+
+        .border-container {
+            border: 2px solid #008080;
+            padding: 15px;
+            margin: 10px;
+        }
+
+        footer {
+            background-color: #008080;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .book-container {
+                flex: 1 1 calc(50% - 10px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .book-container {
+                flex: 1 1 100%;
+            }
+        }
+
+        footer {
+            background-color: #008080;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .social-icons a {
+            margin: 0 15px;
+            font-size: 20px;
+        }
+
+        footer .contact-info {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,fr,es,de,it,pt,zh-CN,ja,ko,ar',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <a href="#" class="logo">
+                    <img src="image/logo (3).png" alt="VisioEd Logo">
+                </a>
+            </div>
+            <div class="navbar-right">
+                <a href="index.html">Home</a>
+                <a href="php/about_us.php">About Us</a>
+                <a href="feature.html">Contact Us</a>
+                <a href="php/signup.php" class="navbar-item"><i class="fas fa-user-plus"></i> Sign Up</a>
+                <a href="php/login.php" class="navbar-item"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+            </div>
+            <div id="google_translate_element"></div>
+        </nav>
+    </header>
+
+
+    <div class="slider-container">
+        <div class="slider-text">
+            <h1>Welcome to VisioEd E-Library</h1>
+            <p>Discover a world of knowledge at your fingertips, where education truly speaks to you!</p>
+            <a href="php/preference.php" class="get-started-btn">Read Now</a>
+        </div>
+        <img src="image/pexels-element5-1370296.jpg" alt="Image of a library shelf with books arranged in it">
+    </div>
+
+    <section class="books">
+        <h2> Featured Books</h2>
+        <div class="book-carousel">
+            <div class="book-slide">
+                <div class="book-card">
+                    <img src="image/book1.png" alt="To Kill a Mockingbird book cover">
+                    <div class="book-info">
+                        <h3>To Kill a Mockingbird</h3>
+                        <p>by Harper Lee</p>
+                        <a href="php/preference.php" class="get-started-link">Read Now</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="image/book2.jpeg" alt="1984 book cover">
+                    <div class="book-info">
+                        <h3>1984</h3>
+                        <p>by George Orwell</p>
+                        <a href="php/preference.php" class="get-started-link">Read Now</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="image/book3.jpeg" alt="The Great Gatsby book cover">
+                    <div class="book-info">
+                        <h3>The Great Gatsby</h3>
+                        <p>by F. Scott Fitzgerald</p>
+                        <a href="php/preference.php" class="get-started-link">Read Now</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="image/book4.jpeg" alt="Harry Potter and the Sorcerer's Stone book cover">
+                    <div class="book-info">
+                        <h3>Harry Potter and the Sorcerer's Stone</h3>
+                        <p>by J.K. Rowling</p>
+                        <a href="php/preference.php" class="get-started-link">Read Now</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="image/book5.jpeg" alt="The Hobbit book cover">
+                    <div class="book-info">
+                        <h3>The Hobbit</h3>
+                        <p>by J.R.R. Tolkien</p>
+                        <a href="php/preference.php" class="get-started-link">Read Now</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="image/becoming.jpeg" alt="Becoming book cover">
+                    <div class="book-info">
+                        <h3>Becoming</h3>
+                        <p>by Michelle Obama</p>
+                        <a href="php/preference.php" class="get-started-link">Read Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories border-container">
+        <h2>Categories</h2>
+        <div class="book-category">
+            <h3>Accessibility Training</h3>
+            <div class="book-grid">
+                <div class="book-container">
+                    <img src="image/nvda.jpg" alt="NVDA display image">
+                    <p>How to use screen readers<br>(NVDA)</p>
+                    <a href="php/preference.php" class="get-started-link">Get Started</a>
+                </div>
+                <div class="book-container">
+                    <img src="image/assistive_technology.jpeg" alt="A screen magnifier on a paper">
+                    <p>Assistive technology tools (Braille display, screen magnifier)</p>
+                    <a href="php/preference.php" class="get-started-link">Get Started</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="book-category">
+            <h3>Computer and Technology</h3>
+            <div class="book-grid">
+                <div class="book-container">
+                    <img src="image/python.png" alt="Python logo image">
+                    <p>Introduction to Python</p>
+                    <a href="php/preference.php" class="get-started-link">Get Started</a>
+                </div>
+                <div class="book-container">
+                    <img src="image/microsoft_office.jpeg" alt="Microsoft office image">
+                    <p>Fundamentals of Microsoft Office</p>
+                    <a href="php/preference.php" class="get-started-link">Get Started</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="book-category">
+            <h3>General Science</h3>
+            <div class="book-grid">
+                <div class="book-container">
+                    <img src="image/biology.jpeg" alt="graphic image of the spelling of biology">
+                    <p>Biology</p>
+                    <a href="php/preference.php" class="get-started-link">Get Started</a>
+                </div>
+                <div class="book-container">
+                    <img src="image/physics.png"
+                        alt="graphic image of the spelling physics with smaller images of pysics equations">
+                    <p>Basic physics</p>
+                    <a href="php/preference.php" class="get-started-link">Get Started</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="book-category">
+            <h3>History</h3>
+            <div class="book-grid">
+                <div class="book-container">
+                    <img src="image/world_history.jpeg" alt="graphic image of the spelling of world history on a map">
+                    <p>World history</p>
+                    <a href="php/preference.php" class="get-started-link">Get Started</a>
+                </div>
+                <div class="book-container">
+                    <img src="image/government.png" alt="Government symbolic image">
+                    <p>Government</p>
+                    <a href="php/preference.php" class="get-started-link">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="display: flex; flex-direction: column; align-items: center; padding: 20px;">
+
+            <div style="margin: 10px 0;">
+                <a href="php/admin_login.php" style="color: #fff; text-decoration: none; margin-right: 20px;">Admin
+                    Login</a>
+                <a href="#" style="color: #fff; text-decoration: none; margin-right: 20px;">Contact Us</a>
+                <a href="#" style="color: #fff; text-decoration: none;">About Us</a>
+            </div>
+            <p class="contact-info" style="margin-top: 10px;">500 lagos avenue, | Phone: (234)
+                8034567865 | Email: info@visioed.com</p>
+            <div class="social-icons" style="margin: 10px 0;">
+                <a href="https://www.facebook.com" target="_blank" style="color: #fff; margin-right: 15px;"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com" target="_blank" style="color: #fff; margin-right: 15px;"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank" style="color: #fff; margin-right: 15px;"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com" target="_blank" style="color: #fff;"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; 2024 VisioEd E-Library. All Rights Reserved.</p>
+
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
